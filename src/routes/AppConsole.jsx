@@ -1012,11 +1012,12 @@ export default function AppConsole() {
         // Hint transcription language to reduce "foreign language" hallucinations
         try {
           dc.send(JSON.stringify({
-            type: "session.update",
-            session: {
-              input_audio_transcription: { language: "pt", model: "gpt-4o-mini-transcribe" }
-            }
-          }));
+  type: "session.update",
+  session: {
+    type: "realtime",  // ← ADICIONE ESTA LINHA AQUI
+    input_audio_transcription: { language: "pt", model: "gpt-4o-mini-transcribe" }
+  }
+}));
         } catch {}
       });
 
