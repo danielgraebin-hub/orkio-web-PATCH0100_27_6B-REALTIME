@@ -1014,8 +1014,15 @@ export default function AppConsole() {
           dc.send(JSON.stringify({
   type: "session.update",
   session: {
-    type: "realtime",  // ← ADICIONE ESTA LINHA AQUI
-    input_audio_transcription: { language: "pt", model: "gpt-4o-mini-transcribe" }
+    type: "realtime",
+    audio: {
+      input: {
+        transcription: {
+          model: "gpt-4o-mini-transcribe",
+          language: "pt"
+        }
+      }
+    }
   }
 }));
         } catch {}
