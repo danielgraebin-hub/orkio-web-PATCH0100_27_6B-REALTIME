@@ -1177,7 +1177,7 @@ export default function AppConsole() {
       if (!dc || dc.readyState !== "open") {
         throw new Error("DataChannel não está aberto");
       }
-      dc.send(JSON.stringify({ type: "response.create", response: { modalities: ["audio"], voice: rtcVoiceRef.current } }));
+      dc.send(JSON.stringify({ type: "response.create", response: { output_modalities: ["audio"], voice: rtcVoiceRef.current } }));
       setRtcReadyToRespond(false);
       setUploadStatus(reason === "magic" ? "✨ Comando recebido — respondendo..." : "▶️ Respondendo...");
       setTimeout(() => setUploadStatus(""), 1500);
